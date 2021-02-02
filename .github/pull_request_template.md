@@ -8,7 +8,7 @@
 
 **How should this be tested?**
 
-**Do you have any questions or issues about this addition?**
+**This PR is related to which issues?**
 
 - [ ] Did you test your code locally first?
 - [ ] Does this follow our intended guidelines (DRY & commented) for project code?
