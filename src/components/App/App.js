@@ -10,7 +10,8 @@ export default class App extends Component {
   }
 
   render() {
-    const titles = this.state.movies.map(movie => <p>{movie.title}</p>);
+    const titles = this.state.movies.map(
+      (movie, index) => <p key={index}>{movie.title}</p>);
     return (
       <div>
         <h1>Rotten Tomatillos</h1>
