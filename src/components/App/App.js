@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default Class App extends Component {
+export default class App extends Component {
   constructor() {
     super()
     this.state = {
@@ -12,8 +12,9 @@ export default Class App extends Component {
   render() {
     return (
       <div>
-        <h1>Rotten Tomatillos</H1>
-        <p>{this.state.movies}</p>
+        <h1>Rotten Tomatillos</h1>
+        {this.state.movies.length ? <p>{this.state.movies}</p> : 
+          <p>Loading...</p>}
       </div>
     )
   }
