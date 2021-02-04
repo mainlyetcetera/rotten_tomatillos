@@ -11,12 +11,12 @@ export default class App extends Component {
   }
 
   render() {
-    const titles = this.state.movies.map(
-      (movie, index) => <p key={index}>{movie.title}</p>);
+    const movies = this.state.movies.map(
+      (movie, index) => <Movie movie={movie}/>);
     return (
       <div>
         <Header />
-        {this.state.movies.length ? titles :
+        {this.state.movies.length ? movies :
           <p>Loading...</p>}
       </div>
     )
