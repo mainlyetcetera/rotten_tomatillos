@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../Header/Header.js';
 
 export default class App extends Component {
   constructor() {
@@ -14,8 +15,8 @@ export default class App extends Component {
       (movie, index) => <p key={index}>{movie.title}</p>);
     return (
       <div>
-        <h1>Rotten Tomatillos</h1>
-        {this.state.movies.length ? titles : 
+        <Header />
+        {this.state.movies.length ? titles :
           <p>Loading...</p>}
       </div>
     )
