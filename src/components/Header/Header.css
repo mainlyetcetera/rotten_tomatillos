@@ -1,0 +1,11 @@
+.header {
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: maroon;
+}
+
+.title {
+  margin: 0;
+}
