@@ -6,6 +6,7 @@
   width: 20vw;
   height: 30vh;
   border: 1px solid black;
+  margin: auto;
 }
 
 .movie-poster {
