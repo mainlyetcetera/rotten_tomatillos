@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header.js';
 import Container from '../Container/Container.js';
+import { Route, Switch } from 'react-router-dom';
 
 export default class App extends Component {
   constructor() {
@@ -15,7 +16,14 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <Container movies={this.state.movies}/>
+        <Switch>
+          <Route
+            path="/"
+            render={() => (
+              <Container movies={this.state.movies} />
+            )}
+            exact />
+        </Switch>
       </div>
     )
   }

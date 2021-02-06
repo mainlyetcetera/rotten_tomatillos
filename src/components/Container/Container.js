@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
+import { Route, Switch } from 'react-router-dom';
 
 import './Container.css';
 
@@ -14,12 +15,13 @@ const Container = props => {
   ));
 
   return (
-    <section className='movie-grid'>
+    <main>
+      <section className='movie-grid'>
       {props.movies.length ? movieComponents :
         <p>Loading...</p>}
-    </section>
+        </section>
+    </main>
   )
 }
 
 export default Container;
-
