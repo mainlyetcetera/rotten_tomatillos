@@ -23,6 +23,12 @@ export default class App extends Component {
         <Header />
         <Switch>
           <Route
+            path="/:title"
+            render={() => (
+            <Container movies={this.state.movies} currentMovie={this.state.currentMovie} updateCurrentMovie={this.updateCurrentMovie}/>
+          )}
+          />
+          <Route
             path="/"
             render={() => (
               <Container movies={this.state.movies} updateCurrentMovie={this.updateCurrentMovie} />
