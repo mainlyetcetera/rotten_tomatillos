@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
+import Details from '../Details/Details.js'
 // import { Route, Switch } from 'react-router-dom';
 
 import './Container.css';
@@ -26,7 +27,7 @@ const Container = props => {
       </main>
     )
   } else {
-    return <h1>{props.currentMovie}</h1>
+    return <Details currentMovie={props.currentMovie} />
   }
 }
 
