@@ -1,21 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Movie.css';
 
 const Movie = ({ poster_path, title, average_rating, updateCurrentMovie, id }) => {
   return (
     <article>
-      <div className="movie-wrapper">
-        <button
-          onClick={() => updateCurrentMovie(id)}
+      <Link
+        to={`/${id}`}
+        className="movie-wrapper"
+        onClick={() => updateCurrentMovie(id)}
+        >
+        <img
           style={{
             backgroundImage: `url(${poster_path})`
           }}
           className="movie-poster"
-        >
-        </button>
+        ></img>
         <h2 className="movie-title">{title}</h2>
         <p className="movie-rating">{average_rating}</p>
-      </div>
+      </Link>
     </article>
   )
 }
