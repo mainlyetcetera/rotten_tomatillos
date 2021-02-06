@@ -1,6 +1,8 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
 
+import './Container.css';
+
 const Container = props => {
   const movieComponents = props.movies.map((movie, index) => (
     <Movie
