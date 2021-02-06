@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header.js';
-import Movie from '../Movie/Movie.js';
+import Container from '../Container/Container.js';
 
 
 export default class App extends Component {
@@ -13,20 +13,10 @@ export default class App extends Component {
   }
 
   render() {
-    const movies = this.state.movies.map(
-      (movie, index) => {
-        return <Movie
-          key={index}
-          poster_path={movie.poster_path}
-          title={movie.title}
-          average_rating={movie.average_rating}
-        />});
-        
     return (
       <div>
         <Header />
-        {this.state.movies.length ? movies :
-          <p>Loading...</p>}
+        <Container movies={this.state.movies}/>
       </div>
     )
   }
