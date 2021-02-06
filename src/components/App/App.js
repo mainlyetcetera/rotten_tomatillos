@@ -8,9 +8,14 @@ export default class App extends Component {
     super()
     this.state = {
       movies: [],
-      currentMovie: ''
+      currentMovie: null
     }
   }
+
+  updateCurrentMovie = (id) => (
+    this.setState({ currentMovie: id })
+  )
+
 
   render() {
     return (
@@ -20,9 +25,9 @@ export default class App extends Component {
           <Route
             path="/"
             render={() => (
-              <Container movies={this.state.movies} />
+              <Container movies={this.state.movies} updateCurrentMovie={this.updateCurrentMovie} />
             )}
-            exact />
+          />
         </Switch>
       </div>
     )

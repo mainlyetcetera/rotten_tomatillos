@@ -1,11 +1,12 @@
 import React from 'react';
 import './Movie.css';
 
-const Movie = ({ poster_path, title, average_rating }) => {
+const Movie = ({ poster_path, title, average_rating, updateCurrentMovie, id }) => {
   return (
     <article>
       <div className="movie-wrapper">
         <button
+          onClick={() => updateCurrentMovie(id)}
           style={{
             backgroundImage: `url(${poster_path})`
           }}

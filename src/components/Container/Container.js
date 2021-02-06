@@ -1,6 +1,6 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
-import { Route, Switch } from 'react-router-dom';
+// import { Route, Switch } from 'react-router-dom';
 
 import './Container.css';
 
@@ -8,9 +8,11 @@ const Container = props => {
   const movieComponents = props.movies.map((movie, index) => (
     <Movie
       key={index}
+      id={movie.id}
       poster_path={movie.poster_path}
       title={movie.title}
       average_rating={movie.average_rating}
+      updateCurrentMovie={props.updateCurrentMovie}
     />
   ));
 
