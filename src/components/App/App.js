@@ -16,6 +16,9 @@ export default class App extends Component {
     this.setState({ currentMovie: id })
   )
 
+  clearCurrentMovie = () => (
+    this.setState({ currentMovie: null })
+  )
 
   render() {
     return (
@@ -23,16 +26,24 @@ export default class App extends Component {
         <Header />
         <Switch>
           <Route
-            path="/:title"
-            render={() => (
-            <Container movies={this.state.movies} currentMovie={this.state.currentMovie} updateCurrentMovie={this.updateCurrentMovie}/>
-          )}
-          />
-          <Route
             path="/"
             render={() => (
-              <Container movies={this.state.movies} updateCurrentMovie={this.updateCurrentMovie} />
+              <Container    
+                movies={this.state.movies}
+                updateCurrentMovie={this.updateCurrentMovie}
+              />
             )}
+            exact
+          />
+          <Route
+            path="/:title"
+            render={() => (
+              <Container    
+                currentMovie={this.state.currentMovie}
+                clearCurrentMovie={this.clearCurrentMovie}
+              />
+            )}
+            exact
           />
         </Switch>
       </div>
