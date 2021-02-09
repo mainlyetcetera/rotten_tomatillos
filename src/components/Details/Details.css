@@ -1,0 +1,24 @@
+.details-wrapper {
+  margin-top: 5vh;
+  width: 100vw;
+  height: 75vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(4px);
+}
+
+.details-poster {
+  width: 20vw;
+  height: 40vh;
+}
+
+.details-modal {
+  position: absolute;
+  text-align: center;
+  top: 25%;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  border: 1px solid black;
+}
