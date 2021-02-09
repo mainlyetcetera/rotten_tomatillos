@@ -4,7 +4,7 @@ import './Movie.css';
 
 const Movie = ({ poster_path, title, average_rating, updateCurrentMovie, id }) => {
   return (
-    <article>
+    <article className="mini-movie">
       <Link
         to={`/${id}`}
         className="movie-wrapper"

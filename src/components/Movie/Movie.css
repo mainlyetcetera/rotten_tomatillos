@@ -1,3 +1,7 @@
+.mini-movie {
+  margin: auto;
+}
+
 .movie-wrapper {
   display: flex;
   flex-direction: column;
@@ -5,7 +9,6 @@
   align-items: center;
   width: 230px;
   height: 50vh;
-  border: 1px solid black;
   margin: 20px;
 }
 
