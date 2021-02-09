@@ -5,20 +5,19 @@
 .movie-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   width: 230px;
-  height: 50vh;
+  height: 55vh;
   margin: 20px;
-  border: none;
 }
 
 .movie-poster {
   width: 100%;
-  height: 90%;
-  background-size: contain;
+  height: 80%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  margin-bottom: 1vh;
 }
 
 .title-wrapper {
@@ -30,7 +29,7 @@
 
 .movie-title {
   text-align: center;
-  font-size: 2vw;
+  font-size: 1.5rem;
   margin: 0px;
 }
 a:link,
