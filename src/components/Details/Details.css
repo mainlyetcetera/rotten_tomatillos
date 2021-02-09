@@ -34,6 +34,11 @@
   min-width: 400px;
 }
 
+.details-overview {
+  max-height: 22%;
+  overflow-y: scroll;
+}
+
 .details-overview__heading,
 .details-genre__heading {
   font-weight: bold;
