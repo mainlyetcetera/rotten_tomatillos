@@ -17,7 +17,6 @@ const Movie = ({ poster_path, title, average_rating, updateCurrentMovie, id }) =
           className="movie-poster"
         ></img>
         <h2 className="movie-title">{title}</h2>
-        <p className="movie-rating">{average_rating}</p>
       </Link>
     </article>
   )
