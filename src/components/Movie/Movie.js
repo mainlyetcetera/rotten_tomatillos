@@ -9,7 +9,7 @@ const Movie = ({ poster_path, title, average_rating, updateCurrentMovie, id }) =
         to={`/${id}`}
         className="movie-wrapper"
         onClick={() => updateCurrentMovie(id)}
-        >
+      >
         <img
           style={{
             backgroundImage: `url(${poster_path})`

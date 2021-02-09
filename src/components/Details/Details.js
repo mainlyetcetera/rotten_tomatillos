@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Details extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class Details extends Component {
   }
 
   render() {
-      if (this.state.movie) {
+    if (this.state.movie) {
       return (
         <div>
           <p>{this.state.movie.overview}</p>
@@ -27,10 +28,11 @@ class Details extends Component {
           <p>{this.state.movie.budget}</p>
           <p>{this.state.movie.runtime}</p>
           <p>{this.state.movie.tagline}</p>
+          <Link to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link> 
         </div>
-      )} else {
+    )} else {
         return <h1>Details Here</h1>
-      }
+    }
   }
 }
 
