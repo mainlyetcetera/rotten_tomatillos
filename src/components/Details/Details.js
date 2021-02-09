@@ -33,14 +33,15 @@ class Details extends Component {
           <div className="details-modal">
           <img className="details-poster" src={`${this.state.movie.poster_path}`} />
           <section className="details-info">
+            <h2 className="details-title">{this.state.movie.title}</h2>
             <p>{this.state.movie.overview}</p>
             <p>{this.state.movie.genres}</p>
             <p>{this.state.movie.budget}</p>
             <p>{this.state.movie.runtime}</p>
             <p>{this.state.movie.tagline}</p>
           </section>
-          <Link className="back-button" to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link>
           </div>
+          <Link className="back-button" to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link>
         </>
     )} else {
         return <h1>Details Here</h1>
