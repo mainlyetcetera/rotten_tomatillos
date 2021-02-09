@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './Details.css'
+
 
 class Details extends Component {
   constructor() {
@@ -21,15 +23,25 @@ class Details extends Component {
   render() {
     if (this.state.movie) {
       return (
-        <div>
-          <p>{this.state.movie.overview}</p>
-          <p>{this.state.movie.genres}</p>
-          <p>{this.state.movie.poster_path}</p>
-          <p>{this.state.movie.budget}</p>
-          <p>{this.state.movie.runtime}</p>
-          <p>{this.state.movie.tagline}</p>
-          <Link to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link> 
-        </div>
+        <>
+          <div
+            className="details-wrapper"
+            style={
+              {backgroundImage: `url(${this.state.movie.backdrop_path})`}
+            }>
+          </div>
+          <div className="details-modal">
+          <img className="details-poster" src={`${this.state.movie.poster_path}`} />
+          <section className="details-info">
+            <p>{this.state.movie.overview}</p>
+            <p>{this.state.movie.genres}</p>
+            <p>{this.state.movie.budget}</p>
+            <p>{this.state.movie.runtime}</p>
+            <p>{this.state.movie.tagline}</p>
+          </section>
+          <Link className="back-button" to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link>
+          </div>
+        </>
     )} else {
         return <h1>Details Here</h1>
     }
