@@ -10,6 +10,7 @@
   width: 230px;
   height: 50vh;
   margin: 20px;
+  border: none;
 }
 
 .movie-poster {
@@ -27,8 +28,8 @@
   align-items: center;
 }
 
-.movie-title,
-.movie-rating {
+.movie-title {
+  text-align: center;
   font-size: 2vw;
   margin: 0px;
 }
