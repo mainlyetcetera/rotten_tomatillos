@@ -56,7 +56,7 @@ class Details extends Component {
           </div>
         </>
     )} else {
-        return <DetailsLoader />
+      return <DetailsLoader />
     }
   }
 }
