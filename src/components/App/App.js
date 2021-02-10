@@ -56,7 +56,7 @@ export default class App extends Component {
       .then(data => setTimeout(() =>
         this.setState({
           movies: data.movies
-        }), 2500))
+        }), 1500))
       .catch(err => console.log(err))
   }
 }
