@@ -5,6 +5,10 @@ import MovieLoader from '../MovieLoader/MovieLoader.js'
 import './Container.css';
 
 const Container = props => {
+  if (props.error) {
+    return <h1>Shit...</h1>
+  }
+
   if (!props.currentMovie) {
     const movieComponents = props.movies.map((movie, index) => (
       <Movie
