@@ -2,7 +2,6 @@ import React from 'react';
 import Movie from '../Movie/Movie.js';
 import Details from '../Details/Details.js'
 import MovieLoader from '../MovieLoader/MovieLoader.js'
-
 import './Container.css';
 
 const Container = props => {
@@ -18,12 +17,13 @@ const Container = props => {
       />
     ));
 
+    const loadingComponents = Array(3).fill(<MovieLoader/>)
+
     return (
       <main>
         <section className='movie-grid'>
-        {props.movies.length ? movieComponents :
-          <MovieLoader />}
-          </section>
+          {props.movies.length ? movieComponents : loadingComponents}
+        </section>
       </main>
     )
   } else {
