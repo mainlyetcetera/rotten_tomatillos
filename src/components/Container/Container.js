@@ -1,6 +1,7 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
 import Details from '../Details/Details.js'
+import MovieLoader from '../MovieLoader/MovieLoader.js'
 
 import './Container.css';
 
@@ -21,12 +22,12 @@ const Container = props => {
       <main>
         <section className='movie-grid'>
         {props.movies.length ? movieComponents :
-          <p>Loading...</p>}
+          <MovieLoader />}
           </section>
       </main>
     )
   } else {
-    return <Details  
+    return <Details
       currentMovie={props.currentMovie}
       clearCurrentMovie={props.clearCurrentMovie}
     />
