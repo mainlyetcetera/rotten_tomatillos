@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import DetailsLoader from '../DetailsLoader/DetailsLoader.js'
 import './Details.css'
 
 
@@ -55,7 +56,7 @@ class Details extends Component {
           </div>
         </>
     )} else {
-        return <h1>Details Here</h1>
+      return <DetailsLoader />
     }
   }
 }

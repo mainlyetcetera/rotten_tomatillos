@@ -28,7 +28,7 @@ export default class App extends Component {
           <Route
             path="/"
             render={() => (
-              <Container    
+              <Container
                 movies={this.state.movies}
                 updateCurrentMovie={this.updateCurrentMovie}
               />
@@ -38,7 +38,7 @@ export default class App extends Component {
           <Route
             path="/:title"
             render={() => (
-              <Container    
+              <Container
                 currentMovie={this.state.currentMovie}
                 clearCurrentMovie={this.clearCurrentMovie}
               />
@@ -53,9 +53,10 @@ export default class App extends Component {
   componentDidMount = () => {
     fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => response.json())
-      .then(data => this.setState({
-        movies: data.movies
-      }))
+      .then(data => setTimeout(() =>
+        this.setState({
+          movies: data.movies
+        }), 1500))
       .catch(err => console.log(err))
   }
 }

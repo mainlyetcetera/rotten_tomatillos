@@ -1,0 +1,11 @@
+.loader-wrapper {
+  margin: auto;
+  width: 230px;
+  height: 55vh;
+}
+
+.loader {
+  margin: auto;
+  margin-top: 20px;
+  width: 100%;
+}
