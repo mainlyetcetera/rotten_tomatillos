@@ -17,7 +17,7 @@ const Container = props => {
       />
     ));
 
-    const loadingComponents = Array(3).fill(<MovieLoader/>)
+    const loadingComponents = [<MovieLoader key={0}/>, <MovieLoader key={1}/>, <MovieLoader key={2}/>]
 
     return (
       <main>
