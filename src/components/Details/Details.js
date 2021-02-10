@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import DetailsLoader from '../DetailsLoader/DetailsLoader.js'
 import './Details.css'
 
-
 class Details extends Component {
   constructor() {
     super()
