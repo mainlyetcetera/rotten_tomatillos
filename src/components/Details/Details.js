@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js'; 
 import DetailsLoader from '../DetailsLoader/DetailsLoader.js'
 import './Details.css'
 import fetchData from '../../apiCalls.js';
@@ -24,7 +25,7 @@ class Details extends Component {
   }
 
   render = () => (
-    this.state.error ? <h1>More shit...</h1>
+    this.state.error ? <ErrorMsg /> 
     : this.state.movie ? (
       <>
         <div
