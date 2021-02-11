@@ -26,29 +26,27 @@ export default class App extends Component {
     return (
       <div>
         <Header />
-        <Switch>
-          <Route
-            path="/"
-            render={() => (
-              <Container
-                movies={this.state.movies}
-                updateCurrentMovie={this.updateCurrentMovie}
-                error={this.state.error}
-              />
-            )}
-            exact
-          />
-          <Route
-            path="/:title"
-            render={() => (
-              <Container
-                currentMovie={this.state.currentMovie}
-                clearCurrentMovie={this.clearCurrentMovie}
-              />
-            )}
-            exact
-          />
-        </Switch>
+        <Route
+          path="/"
+          render={() => (
+            <Container
+              movies={this.state.movies}
+              updateCurrentMovie={this.updateCurrentMovie}
+              error={this.state.error}
+            />
+          )}
+          exact
+        />
+        <Route
+          path="/:title"
+          render={() => (
+            <Container
+              currentMovie={this.state.currentMovie}
+              clearCurrentMovie={this.clearCurrentMovie}
+            />
+          )}
+          exact
+        />
       </div>
     )
   }
