@@ -98,3 +98,10 @@ a:link,
 a:visited {
   color: #FEFDDD;
 }
+
+.error-box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+

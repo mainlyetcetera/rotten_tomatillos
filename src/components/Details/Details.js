@@ -25,8 +25,12 @@ class Details extends Component {
   }
 
   render = () => (
-    this.state.error ? <ErrorMsg /> 
-    : this.state.movie ? (
+    this.state.error ? (
+      <div className='error-box'>
+        <ErrorMsg /> 
+        <Link className="back-button" to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link>
+      </div>
+    ) : this.state.movie ? (
       <>
         <div
           className="details-wrapper"
