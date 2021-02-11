@@ -20,7 +20,7 @@ class Details extends Component {
         movie: data.movie
       });
     })
-    .catch(err => console.log(err))
+    .catch(err => this.setState({error: true}));
   }
 
   render() {
