@@ -24,6 +24,10 @@ class Details extends Component {
   }
 
   render() {
+    if (this.state.error) {
+      return <h1>More shit...</h1>
+    }
+
     if (this.state.movie) {
       return (
         <>
