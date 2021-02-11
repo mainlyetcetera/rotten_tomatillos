@@ -1,12 +1,13 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
 import Details from '../Details/Details.js'
+import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js';
 import MovieLoader from '../MovieLoader/MovieLoader.js'
 import './Container.css';
 
 const Container = props => {
   if (props.error) {
-    return <h1>Shit...</h1>
+    return <ErrorMsg />;
   }
 
   if (!props.currentMovie) {
