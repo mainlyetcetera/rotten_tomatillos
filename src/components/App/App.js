@@ -54,9 +54,8 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
-    fetchData('https://ranasdfcid-tomatillos.herokuapp.com/api/v2/movies')
+    fetchData('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
     .then(data => {
-      console.log('data', data);
       this.setState({
         movies: data.movies
       });

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import DetailsLoader from '../DetailsLoader/DetailsLoader.js'
 import './Details.css'
+import fetchData from '../../apiCalls.js';
 
 class Details extends Component {
   constructor() {
@@ -12,12 +13,13 @@ class Details extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.currentMovie}`)
-      .then(response => response.json())
-      .then(data => this.setState({
+    fetchData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.props.currentMovie}`)
+    .then(data => {
+      this.setState({
         movie: data.movie
-      }))
-      .catch(err => console.log(err))
+      });
+    })
+    .catch(err => console.log(err))
   }
 
   render() {
