@@ -21,9 +21,7 @@ const Container = props => {
         updateCurrentMovie={props.updateCurrentMovie}
       />
     ));
-
     const loadingComponents = [<MovieLoader key={0}/>, <MovieLoader key={1}/>, <MovieLoader key={2}/>]
-
     return (
       <main>
         <section className='movie-grid'>
