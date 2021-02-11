@@ -8,7 +8,8 @@ class Details extends Component {
   constructor() {
     super()
     this.state = {
-      movie: null
+      movie: null,
+      error: false
     }
   }
 
