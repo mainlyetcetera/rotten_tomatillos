@@ -38,7 +38,7 @@ export default class App extends Component {
           exact
         />
         <Route
-          path="/:title"
+          path="/:title/:id"
           render={() => (
             <Container
               currentMovie={this.state.currentMovie}

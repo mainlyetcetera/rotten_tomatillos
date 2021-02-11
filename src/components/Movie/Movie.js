@@ -6,7 +6,7 @@ const Movie = ({ poster_path, title, average_rating, updateCurrentMovie, id }) =
   return (
     <article className="mini-movie">
       <Link
-        to={`/${id}`}
+        to={`/${title}/${id}`}
         className="movie-wrapper"
         onClick={() => updateCurrentMovie(id)}
       >
