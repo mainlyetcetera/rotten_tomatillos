@@ -18,7 +18,6 @@ const Container = props => {
         poster_path={movie.poster_path}
         title={movie.title}
         average_rating={movie.average_rating}
-        updateCurrentMovie={props.updateCurrentMovie}
       />
     ));
     const loadingComponents = [<MovieLoader key={0}/>, <MovieLoader key={1}/>, <MovieLoader key={2}/>]
@@ -32,7 +31,6 @@ const Container = props => {
   } else {
     return <Details
       currentMovie={props.currentMovie}
-      clearCurrentMovie={props.clearCurrentMovie}
     />
   }
 }

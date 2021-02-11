@@ -9,18 +9,9 @@ export default class App extends Component {
     super()
     this.state = {
       movies: [],
-      currentMovie: null,
       error: false
     }
   }
-
-  updateCurrentMovie = (id) => (
-    this.setState({ currentMovie: id })
-  )
-
-  clearCurrentMovie = () => (
-    this.setState({ currentMovie: null })
-  )
 
   componentDidMount = () => {
     fetchData('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
@@ -41,7 +32,6 @@ export default class App extends Component {
           render={() => (
             <Container
               movies={this.state.movies}
-              updateCurrentMovie={this.updateCurrentMovie}
               error={this.state.error}
             />
           )}
@@ -49,12 +39,11 @@ export default class App extends Component {
         />
         <Route
           path="/:title/:id"
-          render={({ match }) => {
-            return <Container
+          render={({ match }) => (
+            <Container
               currentMovie={match.params.id}
-              clearCurrentMovie={this.clearCurrentMovie}
             />
-          }}
+          )}
           exact
         />
       </div>
