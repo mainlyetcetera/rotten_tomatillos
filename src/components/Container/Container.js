@@ -1,10 +1,15 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
 import Details from '../Details/Details.js'
+import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js';
 import MovieLoader from '../MovieLoader/MovieLoader.js'
 import './Container.css';
 
 const Container = props => {
+  if (props.error) {
+    return <ErrorMsg />;
+  }
+
   if (!props.currentMovie) {
     const movieComponents = props.movies.map((movie, index) => (
       <Movie
