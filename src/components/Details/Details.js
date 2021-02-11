@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js'; 
+import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js';
 import DetailsLoader from '../DetailsLoader/DetailsLoader.js'
 import './Details.css'
 import fetchData from '../../apiCalls.js';
@@ -27,7 +27,7 @@ class Details extends Component {
   render = () => (
     this.state.error ? (
       <div className='error-box'>
-        <ErrorMsg /> 
+        <ErrorMsg />
         <Link className="back-button" to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link>
       </div>
     ) : this.state.movie ? (
