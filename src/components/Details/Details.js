@@ -29,7 +29,7 @@ class Details extends Component {
     this.state.error ? (
       <div className='error-box'>
         <ErrorMsg />
-        <Link className="back-button" to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link>
+        <Link className="back-button" to='/'>Back to Movies</Link>
       </div>
     ) : this.state.movie ? (
       <DetailsModal movie={this.state.movie}/>
