@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js';
 import DetailsLoader from '../DetailsLoader/DetailsLoader.js'
+import DetailsModal from '../DetailsModal/DetailsModal.js'
 import './Details.css'
 import fetchData from '../../apiCalls.js';
 
