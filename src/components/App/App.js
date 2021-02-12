@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header.js';
 import Container from '../Container/Container.js';
-import { Route, useParams } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import fetchData from '../../apiCalls.js';
 
 export default class App extends Component {
