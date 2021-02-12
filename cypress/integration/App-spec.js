@@ -4,7 +4,8 @@ describe('the App component', () => {
   });
 
   it('should render a header', () => {
-
+    cy.get('header')
+      .contains('Rotten Tomatillos');
   });
 
   it('should render movies', () => {
