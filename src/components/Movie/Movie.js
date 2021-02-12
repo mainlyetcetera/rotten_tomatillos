@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Movie.css';
 
-const Movie = ({ poster_path, title, average_rating, updateCurrentMovie, id }) => {
+const Movie = ({ poster_path, title, average_rating, id }) => {
+  const cleanTitle = title.replaceAll(/[^a-zA-Z0-9]/g, '').replaceAll(' ', '');
   return (
     <article className="mini-movie">
       <Link
-        to={`/${id}`}
+        to={`/${cleanTitle}/${id}`}
         className="movie-wrapper"
-        onClick={() => updateCurrentMovie(id)}
       >
         <img
           style={{

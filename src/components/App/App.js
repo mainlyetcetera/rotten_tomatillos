@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header.js';
 import Container from '../Container/Container.js';
-import { Route, Switch } from 'react-router-dom';
+import { Route, useParams } from 'react-router-dom';
 import fetchData from '../../apiCalls.js';
 
 export default class App extends Component {
@@ -9,48 +9,8 @@ export default class App extends Component {
     super()
     this.state = {
       movies: [],
-      currentMovie: null,
       error: false
     }
-  }
-
-  updateCurrentMovie = (id) => (
-    this.setState({ currentMovie: id })
-  )
-
-  clearCurrentMovie = () => (
-    this.setState({ currentMovie: null })
-  )
-
-  render() {
-    return (
-      <div>
-        <Header />
-        <Switch>
-          <Route
-            path="/"
-            render={() => (
-              <Container
-                movies={this.state.movies}
-                updateCurrentMovie={this.updateCurrentMovie}
-                error={this.state.error}
-              />
-            )}
-            exact
-          />
-          <Route
-            path="/:title"
-            render={() => (
-              <Container
-                currentMovie={this.state.currentMovie}
-                clearCurrentMovie={this.clearCurrentMovie}
-              />
-            )}
-            exact
-          />
-        </Switch>
-      </div>
-    )
   }
 
   componentDidMount = () => {
@@ -62,4 +22,32 @@ export default class App extends Component {
     })
     .catch(err => this.setState({error: true}));
   }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <Route
+          path="/"
+          render={() => (
+            <Container
+              movies={this.state.movies}
+              error={this.state.error}
+            />
+          )}
+          exact
+        />
+        <Route
+          path="/:title/:id"
+          render={({ match }) => (
+            <Container
+              currentMovie={match.params.id}
+            />
+          )}
+          exact
+        />
+      </div>
+    )
+  }
+
 }
