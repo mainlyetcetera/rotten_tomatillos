@@ -23,7 +23,11 @@ const DetailsModal = ( { movie }) => {
     }>
   </div>
   <div className="details-modal">
-    <img className="details-poster" src={`${movie.poster_path}`} />
+    <img
+      className="details-poster"
+      src={`${movie.poster_path}`}
+      alt={`The poster for ${movie.title}`}
+    />
     <section className="details-info">
       <h2 className="details-title">{movie.title}</h2>
       <p className="details-release-date">{movie.release_date.slice(0,4)}</p>
