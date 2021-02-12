@@ -31,7 +31,7 @@ class Details extends Component {
         <Link className="back-button" to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link>
       </div>
     ) : this.state.movie ? (
-      <DetailsModal />
+      <DetailsModal movie={this.state.movie}/>
     ) : (
       <DetailsLoader />
     )
