@@ -3,6 +3,16 @@ import './DetailsModal.css'
 import { Link } from 'react-router-dom';
 
 const DetailsModal = ( { movie }) => {
+  const formatDollars = (number) => (
+    number.toLocaleString('en', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0,
+    })
+  );
+
+  const formattedBudget = formatDollars(movie.budget);
+  const formattedRevenue = formatDollars(movie.revenue);
 
   return (
   <>
@@ -24,15 +34,15 @@ const DetailsModal = ( { movie }) => {
       <div className="details-bottom">
         <div className="details-trivia-wrapper">
           <p className="details-trivia__heading">Trivia</p>
-          <p className="details-trivia-fact">Budget: ${movie.budget}</p>
-          <p className="details-trivia-fact">Runtime: {movie.runtime}mins</p>
-          <p className="details-trivia-fact">Revenue: ${movie.revenue}</p>
+          {movie.budget !== 0 && <p className="details-trivia-fact">Budget: {formattedBudget}</p>}
+          {movie.revenue !==0 && <p className="details-trivia-fact">Revenue: {formattedRevenue}</p>}
+          <p className="details-trivia-fact">Runtime: {movie.runtime} mins</p>
         </div>
         <div className="details-rating-wrapper">
-          <p className="details-rating">{this.state.movie.average_rating.toFixed(1)}</p>
+          <p className="details-rating">{movie.average_rating.toFixed(1)}</p>
         </div>
       </div>
-      <Link className="back-button" to='/' onClick={this.props.clearCurrentMovie}>Back to Movies</Link>
+      <Link to='/'>Back to Movies</Link>
     </section>
   </div>
   </>
