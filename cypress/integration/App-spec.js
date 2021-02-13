@@ -9,6 +9,22 @@ describe('the main poster view', () => {
       .contains('Rotten Tomatillos');
   });
 
+  it('should load placeholders', () => {
+    // can we test the loading placeholders?
+    // try to make fetch wait
+    // check that placeholders exist
+    // then let fetch finish
+    // .wait(500)
+    cy
+      .fixture('testData.json')
+      .then(data => {
+        .intercept('GET', 'http://localhost:3000/', {
+          statusCode: 200, 
+          body: { placeholder }
+        })
+      })
+  });
+
   it('should render movies', () => {
     // check class name?
     // check how many there are?
@@ -16,18 +32,16 @@ describe('the main poster view', () => {
     cy.get('section')
   });
 
-
   it('should be able to fetch movies', () => {
 
   });
-
 
   it('should render an error message if the fetch fails', () => {
 
   });
 });
 
-describe('the single movie view'), () => { 
+describe('the single movie view', () => { 
   it('should render a single movie from the url', () => {
     // cy.visit a single page here
 
