@@ -25,6 +25,14 @@ describe('the movies view', () => {
       .should('have.length', 3)
   });
 
+  it('should render the correct poster of a movie', () => {
+    cy
+      .get('section')
+      .children('article:first')
+      .find('img')
+      .should('have.attr', 'src', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+  });
+
   it('should be able to fetch movies', () => {
 
   });
