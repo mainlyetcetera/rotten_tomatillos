@@ -1,7 +1,15 @@
-describe('the main poster view', () => {
-  beforeEach(() => {
-    cy.visit('localhost:3000');
-  });
+describe('ld visit the page with test data', () => {
+  // beforeEach(() => {
+    cy
+      .fixture('../fixtures/allMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          statusCode: 200, 
+          body: data
+        })
+      })
+      cy.visit('localhost:3000');
+  // });
 
   it('should render a header', () => {
     cy
@@ -15,14 +23,6 @@ describe('the main poster view', () => {
     // check that placeholders exist
     // then let fetch finish
     // .wait(500)
-    cy
-      .fixture('testData.json')
-      .then(data => {
-        .intercept('GET', 'http://localhost:3000/', {
-          statusCode: 200, 
-          body: { placeholder }
-        })
-      })
   });
 
   it('should render movies', () => {
