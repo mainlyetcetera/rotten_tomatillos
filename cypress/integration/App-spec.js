@@ -117,7 +117,7 @@ describe('the error on the main view', () => {
   });
 });
 
-describe('the error on the individual view', () => {
+describe.only('the error on the individual view', () => {
   it('should visit the page with test data', () => {
     cy
       .fixture('../fixtures/allMovies.json')
@@ -155,5 +155,27 @@ describe('the error on the individual view', () => {
       .get('div')
       .find('h3')
       .contains('Please try again later!')
+  });
+
+  it('should wait', () => {
+    cy.wait(3000)
+  });
+
+  it('should return to main view even after an error upon link click', () => {
+    cy
+      .get('div a')
+      .click()
+
+    cy
+      .get('section')
+      .children('article:nth-child(3)')
+      .find('h2')
+      .contains('Rogue')
+
+    cy
+      .get('section')
+      .children('article:nth-child(3)')
+      .find('img')
+      .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg')
   });
 });
