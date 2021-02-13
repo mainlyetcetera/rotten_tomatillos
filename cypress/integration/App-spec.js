@@ -1,5 +1,5 @@
-describe('ld visit the page with test data', () => {
-  // beforeEach(() => {
+describe('the movies view', () => {
+  it('should visit the page with test data', () => {
     cy
       .fixture('../fixtures/allMovies.json')
       .then(data => {
@@ -8,8 +8,9 @@ describe('ld visit the page with test data', () => {
           body: data
         })
       })
-      cy.visit('localhost:3000');
-  // });
+    cy
+      .visit('localhost:3000');
+  });
 
   it('should render a header', () => {
     cy
@@ -17,19 +18,11 @@ describe('ld visit the page with test data', () => {
       .contains('Rotten Tomatillos');
   });
 
-  it('should load placeholders', () => {
-    // can we test the loading placeholders?
-    // try to make fetch wait
-    // check that placeholders exist
-    // then let fetch finish
-    // .wait(500)
-  });
-
   it('should render movies', () => {
-    // check class name?
-    // check how many there are?
-    // check that there are multiple articles
-    cy.get('section')
+    cy
+      .get('section')
+      .children()
+      .should('have.length', 3)
   });
 
   it('should be able to fetch movies', () => {
