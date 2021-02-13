@@ -33,6 +33,14 @@ describe('the movies view', () => {
       .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
   });
 
+  it('should render the correct title of a movie', () => {
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .contains('Money Plane')
+  });
+
   it('should be able to fetch movies', () => {
 
   });
