@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header.js';
 import Container from '../Container/Container.js';
-import { Route, useParams } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import fetchData from '../../apiCalls.js';
 
 export default class App extends Component {
@@ -15,11 +15,10 @@ export default class App extends Component {
 
   componentDidMount = () => {
     fetchData('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
-    .then(data => {
-      this.setState({
-        movies: data.movies
-      });
-    })
+    .then(data => setTimeout(() =>
+       this.setState({
+         movies: data.movies
+       }), 1500))
     .catch(err => this.setState({error: true}));
   }
 

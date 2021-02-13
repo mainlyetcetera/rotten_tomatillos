@@ -11,10 +11,9 @@ const Movie = ({ poster_path, title, average_rating, id }) => {
         className="movie-wrapper"
       >
         <img
-          style={{
-            backgroundImage: `url(${poster_path})`
-          }}
+          src={`${poster_path}`}
           className="movie-poster"
+          alt={`The poster for ${title}`}
         ></img>
         <h2 className="movie-title">{title}</h2>
       </Link>
