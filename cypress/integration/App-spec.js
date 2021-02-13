@@ -9,6 +9,14 @@ describe('the movies view', () => {
         })
       })
     cy
+      .fixture('../fixtures/indivMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+          statusCode: 200, 
+          body: data
+        })
+      })
+    cy
       .visit('localhost:3000');
   });
 
@@ -41,14 +49,22 @@ describe('the movies view', () => {
       .contains('Money Plane')
   });
 
-  it('should be able to fetch movies', () => {
+  it('should navigate upon clicking a movie', () => {
+    cy
+    .get('section')
+    .children('article:first')
+    .find('h2')
+    .click()
 
-  });
-
-  it('should render an error message if the fetch fails', () => {
-
+    cy
+    .get('div section')
+    .find('h2')
+    .contains('Money Plane')
   });
 });
+
+// thinking we may need describe blocks for each set of errors
+// best way to reset intercepts
 
 describe('the single movie view', () => { 
   it('should render a single movie from the url', () => {
