@@ -1,4 +1,4 @@
-describe('the movies view', () => {
+describe('the main user flow', () => {
   it('should visit the page with test data', () => {
     cy
       .fixture('../fixtures/allMovies.json')
@@ -76,21 +76,16 @@ describe('the movies view', () => {
       .click()
   });
 
-  it('should wait a sec', () => {
-    cy.wait(1000);
-  });
-
-  it('should navigate upon clicking a movie', () => {
+  it('should navigate upon clicking a movie poster', () => {
     cy
-    .get('section')
-    .children('article:first')
-    .find('img')
-    .click()
+      .get('section')
+      .children('article:nth-child(2)')
+      .find('img')
+      .click()
 
     cy
-    .get('div img')
-    // .find('img')
-    .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
+      .get('div img')
+      .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
   });
 });
 
