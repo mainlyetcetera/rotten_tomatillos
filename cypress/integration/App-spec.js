@@ -1,25 +1,9 @@
-describe('the main user flow', () => {
+describe.only('the main user flow', () => {
   it('should visit the page with test data', () => {
     cy
       .fixture('../fixtures/allMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-          statusCode: 200, 
-          body: data
-        })
-      })
-    cy
-      .fixture('../fixtures/indivMovies.json')
-      .then(data => {
-        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
-          statusCode: 200, 
-          body: data
-        })
-      })
-    cy
-      .fixture('../fixtures/indivMovies.json')
-      .then(data => {
-        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
           statusCode: 200, 
           body: data
         })
@@ -59,6 +43,14 @@ describe('the main user flow', () => {
 
   it('should navigate upon clicking a title', () => {
     cy
+      .fixture('../fixtures/indivMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+          statusCode: 200, 
+          body: data.indivMovie[0]
+        })
+      })
+    cy
     .get('section')
     .children('article:first')
     .find('h2')
@@ -68,6 +60,9 @@ describe('the main user flow', () => {
     .get('div section')
     .find('h2')
     .contains('Money Plane')
+
+    cy
+    .wait(3000)
   });
   
   it('should be able to return to main view from the link', () => {
@@ -77,6 +72,14 @@ describe('the main user flow', () => {
   });
 
   it('should navigate upon clicking a movie poster', () => {
+    cy
+      .fixture('../fixtures/indivMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+          statusCode: 200, 
+          body: data.indivMovie[1]
+        })
+      })
     cy
       .get('section')
       .children('article:nth-child(2)')
@@ -100,6 +103,47 @@ describe('the error on the main view', () => {
       })
     cy
       .visit('localhost:3000');
+  });
+
+  it('should render error messages', () => {
+    cy
+      .get('div')
+      .find('h2')
+      .contains('Sorry, something went wrong!')
+    cy
+      .get('div')
+      .find('h3')
+      .contains('Please try again later!')
+  });
+});
+
+describe('the error on the individual view', () => {
+  it('should visit the page with test data', () => {
+    cy
+      .fixture('../fixtures/allMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          statusCode: 200, 
+          body: data
+        })
+      })
+    cy
+      .fixture('../fixtures/indivMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/718444', {
+          statusCode: 401
+        })
+      })
+    cy
+      .visit('http://localhost:3000')
+  });
+
+  it('should navigate upon clicking a title', () => {
+    cy
+    .get('section')
+    .children('article:nth-child(3)')
+    .find('h2')
+    .click()
   });
 
   it('should render error messages', () => {
