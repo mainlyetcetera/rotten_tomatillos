@@ -17,6 +17,14 @@ describe('the movies view', () => {
         })
       })
     cy
+      .fixture('../fixtures/indivMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+          statusCode: 200, 
+          body: data
+        })
+      })
+    cy
       .visit('localhost:3000');
   });
 
