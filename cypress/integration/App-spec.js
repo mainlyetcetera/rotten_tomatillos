@@ -15,7 +15,7 @@ describe('the movies view', () => {
   it('should render a header', () => {
     cy
       .get('header')
-      .contains('Rotten Tomatillos');
+      .contains('Rancid Tomatillos');
   });
 
   it('should render movies', () => {
@@ -30,7 +30,7 @@ describe('the movies view', () => {
       .get('section')
       .children('article:first')
       .find('img')
-      .should('have.attr', 'src', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+      .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
   });
 
   it('should be able to fetch movies', () => {
