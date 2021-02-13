@@ -1,4 +1,4 @@
-describe.only('the main user flow', () => {
+describe('the main user flow', () => {
   it('should visit the page with test data', () => {
     cy
       .fixture('../fixtures/allMovies.json')
@@ -128,17 +128,17 @@ describe('the error on the individual view', () => {
         })
       })
     cy
+      .visit('http://localhost:3000')
+  });
+
+  it('should navigate upon clicking a title', () => {
+    cy
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/718444', {
           statusCode: 401
         })
       })
-    cy
-      .visit('http://localhost:3000')
-  });
-
-  it('should navigate upon clicking a title', () => {
     cy
     .get('section')
     .children('article:nth-child(3)')
