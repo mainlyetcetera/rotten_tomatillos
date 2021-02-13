@@ -89,28 +89,27 @@ describe('the main user flow', () => {
   });
 });
 
-// thinking we may need describe blocks for each set of errors
-// best way to reset intercepts
-
-describe('the single movie view', () => { 
-  it('should render a single movie from the url', () => {
-    // cy.visit a single page here
-
+describe('the error on the main view', () => { 
+  it('navigate to a bad api', () => {
+    cy
+      .fixture('../fixtures/allMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          statusCode: 400
+        })
+      })
+    cy
+      .visit('localhost:3000');
   });
 
-  it('should be able to fetch a single movie', () => {
-
-  });
-
-  it('should render an error message if the fetch fails', () => {
-
-  });
-
-  it('should render all details if all details are in the data', () => {
-
-  });
-
-  it('should not render details that are not present in the data', () => {
-
+  it('should render error messages', () => {
+    cy
+      .get('div')
+      .find('h2')
+      .contains('Sorry, something went wrong!')
+    cy
+      .get('div')
+      .find('h3')
+      .contains('Please try again later!')
   });
 });
