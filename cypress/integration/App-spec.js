@@ -36,4 +36,16 @@ describe('the single movie view'), () => {
   it('should be able to fetch a single movie', () => {
 
   });
+
+  it('should render an error message if the fetch fails', () => {
+
+  });
+
+  it('should render all details if all details are in the data', () => {
+
+  });
+
+  it('should not render details that are not present in the data', () => {
+
+  });
 });
