@@ -49,7 +49,7 @@ describe('the movies view', () => {
       .contains('Money Plane')
   });
 
-  it('should navigate upon clicking a movie', () => {
+  it('should navigate upon clicking a title', () => {
     cy
     .get('section')
     .children('article:first')
@@ -60,6 +60,29 @@ describe('the movies view', () => {
     .get('div section')
     .find('h2')
     .contains('Money Plane')
+  });
+  
+  it('should be able to return to main view from the link', () => {
+    cy
+      .get('div section a')
+      .click()
+  });
+
+  it('should wait a sec', () => {
+    cy.wait(1000);
+  });
+
+  it('should navigate upon clicking a movie', () => {
+    cy
+    .get('section')
+    .children('article:first')
+    .find('img')
+    .click()
+
+    cy
+    .get('div img')
+    // .find('img')
+    .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
   });
 });
 
