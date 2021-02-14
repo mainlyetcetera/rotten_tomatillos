@@ -179,3 +179,11 @@ describe.only('the error on the individual view', () => {
       .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg')
   });
 });
+
+describe('going straight to a single-movie view', () => { 
+  it('should be able to navigate straight to a single-movie', () => {
+  });
+
+  it('should be able to click the link back to the main view', () => {
+  });
+});
