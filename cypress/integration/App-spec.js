@@ -131,7 +131,7 @@ describe('the error on the individual view', () => {
       .visit('http://localhost:3000')
   });
 
-  it('should navigate upon clicking a title', () => {
+  it.only('should navigate upon clicking a title', () => {
     cy
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
@@ -139,6 +139,7 @@ describe('the error on the individual view', () => {
           statusCode: 401
         })
       })
+
     cy
     .get('section')
     .children('article:nth-child(3)')
@@ -151,14 +152,15 @@ describe('the error on the individual view', () => {
       .get('div')
       .find('h2')
       .contains('Sorry, something went wrong!')
+
     cy
       .get('div')
       .find('h3')
       .contains('Please try again later!')
   });
 
-  it('should wait', () => {
-    cy.wait(3000)
+  it('should take time to show the error message', () => {
+    cy.wait(2000)
   });
 
   it('should return to main view even after an error upon link click', () => {
@@ -180,7 +182,7 @@ describe('the error on the individual view', () => {
   });
 });
 
-describe.only('going straight to a single-movie view', () => { 
+describe('going straight to a single-movie view', () => { 
   it('should be able to navigate straight to a single-movie', () => {
     cy
       .fixture('../fixtures/indivMovies.json')
@@ -208,8 +210,8 @@ describe.only('going straight to a single-movie view', () => {
       .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
   });
 
-  it('should wait', () => {
-    cy.wait(2000)
+  it('should visibly stop on details page before returning', () => {
+    cy.wait(1000)
   });
 
   it('should be able to click the link back to the main view', () => {
