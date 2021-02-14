@@ -131,6 +131,12 @@ describe('the error on the individual view', () => {
 
     cy
       .visit('http://localhost:3000')
+
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .contains('Money Plane')
   });
 
   it('should navigate upon clicking a title', () => {
