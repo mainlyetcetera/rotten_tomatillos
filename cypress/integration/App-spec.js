@@ -117,7 +117,7 @@ describe('the error on the main view', () => {
   });
 });
 
-describe.only('the error on the individual view', () => {
+describe('the error on the individual view', () => {
   it('should visit the page with test data', () => {
     cy
       .fixture('../fixtures/allMovies.json')
@@ -190,13 +190,43 @@ describe.only('going straight to a single-movie view', () => {
           body: data.indivMovie[1]
         })
       })
+
+    cy
+      .fixture('../fixtures/allMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          statusCode: 200, 
+          body: data
+        })
+      })
+
     cy
       .visit('http://localhost:3000/Mulan/337401')
+
     cy
       .get('div img')
       .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
   });
 
+  it('should wait', () => {
+    cy.wait(2000)
+  });
+
   it('should be able to click the link back to the main view', () => {
+    cy
+      .get('div a')
+      .click()
+
+    cy
+      .get('section')
+      .children('article:nth-child(2)')
+      .find('h2')
+      .contains('Mulan')
+
+    cy
+      .get('section')
+      .children('article:nth-child(2)')
+      .find('img')
+      .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
   });
 });
