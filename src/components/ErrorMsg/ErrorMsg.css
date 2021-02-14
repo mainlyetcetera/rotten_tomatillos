@@ -1,8 +1,7 @@
 .error-wrapper {
   color: #DAE09F;
   width: 40%;
-  margin: auto;
-  margin-top: 5vh;
+  margin: 5vh auto;
   display: flex;
   flex-direction: column;
   justify-content: center;

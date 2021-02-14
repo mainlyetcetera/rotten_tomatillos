@@ -38,3 +38,30 @@ a:visited {
   color: #c8cbcf;
   text-decoration: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .movie-wrapper {
+    width: 200px;
+    height: 40vh;
+  }
+  
+  .movie-title {
+    text-align: center;
+    font-size: 1rem;
+    margin: 0px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .movie-wrapper {
+    width: 100px;
+    height: 25vh;
+    margin-top: 40px;
+  }
+
+  .movie-title {
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0px;
+  }
+}
