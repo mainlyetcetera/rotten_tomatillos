@@ -8,6 +8,7 @@ describe('the main user flow', () => {
           body: data
         })
       })
+
     cy
       .visit('localhost:3000');
   });
@@ -70,6 +71,11 @@ describe('the main user flow', () => {
     cy
       .get('div section a')
       .click()
+
+    cy
+      .get('div section')
+      .find('h2')
+      .contains('Money Plane')
   });
 
   it('should navigate upon clicking a movie poster', () => {
@@ -81,6 +87,7 @@ describe('the main user flow', () => {
           body: data.indivMovie[1]
         })
       })
+
     cy
       .get('section')
       .children('article:nth-child(2)')
@@ -102,6 +109,7 @@ describe('the error on the main view', () => {
           statusCode: 400
         })
       })
+
     cy
       .visit('localhost:3000');
   });
@@ -111,6 +119,7 @@ describe('the error on the main view', () => {
       .get('div')
       .find('h2')
       .contains('Sorry, something went wrong!')
+
     cy
       .get('div')
       .find('h3')
