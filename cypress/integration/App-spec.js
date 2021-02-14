@@ -50,19 +50,20 @@ describe('the main user flow', () => {
           body: data.indivMovie[0]
         })
       })
-    cy
-    .get('section')
-    .children('article:first')
-    .find('h2')
-    .click()
 
     cy
-    .get('div section')
-    .find('h2')
-    .contains('Money Plane')
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .click()
 
     cy
-    .wait(3000)
+      .get('div section')
+      .find('h2')
+      .contains('Money Plane')
+
+    cy
+      .wait(3000)
   });
   
   it('should be able to return to main view from the link', () => {
@@ -127,6 +128,7 @@ describe('the error on the individual view', () => {
           body: data
         })
       })
+
     cy
       .visit('http://localhost:3000')
   });
