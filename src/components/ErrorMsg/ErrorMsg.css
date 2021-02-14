@@ -1,0 +1,12 @@
+.error-wrapper {
+  color: #DAE09F;
+  width: 40%;
+  margin: auto;
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #DAE09F;
+  border-radius: 5px;
+}

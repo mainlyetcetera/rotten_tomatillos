@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 
   componentDidMount = () => {
-    fetchData('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
+    fetchData('https://rancid-tomatillos.herokuapp.com/api/v2/movie')
     .then(data => setTimeout(() =>
        this.setState({
          movies: data.movies
