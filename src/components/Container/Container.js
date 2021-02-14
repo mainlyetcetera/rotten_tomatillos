@@ -20,7 +20,10 @@ const Container = props => {
         average_rating={movie.average_rating}
       />
     ));
-    const loadingComponents = [<MovieLoader key={0}/>, <MovieLoader key={1}/>, <MovieLoader key={2}/>]
+    const loadingComponents = [<MovieLoader key={0}/>,
+        <MovieLoader key={1}/>,
+        <MovieLoader key={2}/>,
+        <MovieLoader key={4}/>]
     return (
       <main>
         <section className='movie-grid'>
