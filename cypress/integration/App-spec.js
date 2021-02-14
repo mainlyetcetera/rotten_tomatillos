@@ -131,7 +131,7 @@ describe('the error on the individual view', () => {
       .visit('http://localhost:3000')
   });
 
-  it.only('should navigate upon clicking a title', () => {
+  it('should navigate upon clicking a title', () => {
     cy
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
@@ -145,6 +145,16 @@ describe('the error on the individual view', () => {
     .children('article:nth-child(3)')
     .find('h2')
     .click()
+
+    cy
+      .get('div')
+      .find('h2')
+      .contains('Sorry, something went wrong!')
+
+    cy
+      .get('div')
+      .find('h3')
+      .contains('Please try again later!')
   });
 
   it('should render error messages', () => {
