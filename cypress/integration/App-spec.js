@@ -62,9 +62,6 @@ describe('the main user flow', () => {
       .get('div section')
       .find('h2')
       .contains('Money Plane')
-
-    cy
-      .wait(3000)
   });
   
   it('should be able to return to main view from the link', () => {
@@ -186,10 +183,6 @@ describe('the error on the individual view', () => {
       .contains('Please try again later!')
   });
 
-  it('should take time to show the error message', () => {
-    cy.wait(2000)
-  });
-
   it('should return to main view even after an error upon link click', () => {
     cy
       .get('div a')
@@ -235,10 +228,6 @@ describe('going straight to a single-movie view', () => {
     cy
       .get('div img')
       .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
-  });
-
-  it('should visibly stop on details page before returning', () => {
-    cy.wait(1000)
   });
 
   it('should be able to click the link back to the main view', () => {
