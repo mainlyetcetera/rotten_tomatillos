@@ -180,8 +180,21 @@ describe.only('the error on the individual view', () => {
   });
 });
 
-describe('going straight to a single-movie view', () => { 
+describe.only('going straight to a single-movie view', () => { 
   it('should be able to navigate straight to a single-movie', () => {
+    cy
+      .fixture('../fixtures/indivMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+          statusCode: 200, 
+          body: data.indivMovie[1]
+        })
+      })
+    cy
+      .visit('http://localhost:3000/Mulan/337401')
+    cy
+      .get('div img')
+      .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
   });
 
   it('should be able to click the link back to the main view', () => {
