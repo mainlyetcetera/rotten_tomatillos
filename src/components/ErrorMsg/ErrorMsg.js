@@ -1,8 +1,9 @@
 import React from 'react';
+import './ErrorMsg.css'
 
 export const ErrorMsg = () => (
-  <div className='whole-error'>
-    <h2 className='errorMsg'>Sorry, something went wrong!</h2>
-    <h3 className='later-text'>Please try again later!</h3>
+  <div className='error-wrapper'>
+    <h2 className='error-msg'>Sorry, something went wrong!</h2>
+    <h3>Please try again later.</h3>
   </div>
 )

@@ -3,4 +3,4 @@ const fetchData = url => {
     .then(response => response.json())
 }
 
-export default fetchData; 
+export default fetchData;
