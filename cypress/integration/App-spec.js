@@ -361,12 +361,13 @@ describe('the search bar', () => {
   it('should be able to find just one movie', () => { 
   });
 
-  it('should be able to find just one movie', () => { 
+  it('should not render a movie that should not be found in the search', () => {
   });
 
   it('should render no-movies-found if no matches', () => { 
   });
 
   it('should not render search bar on individual movie view', () => { 
+    // this will need an intercept for an individual view and a click to get there
   });
 });
