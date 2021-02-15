@@ -5,9 +5,9 @@ import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js';
 import MovieLoader from '../MovieLoader/MovieLoader.js'
 import SearchBar from '../SearchBar/SearchBar.js';
 import NoResults from '../NoResults/NoResults.js'
-import './Container.css';
+import './Display.css';
 
-const Container = props => {
+const Display = props => {
   if (props.error) {
     return <ErrorMsg />;
   }
@@ -50,4 +50,4 @@ const Container = props => {
   }
 }
 
-export default Container;
+export default Display;

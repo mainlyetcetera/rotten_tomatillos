@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header/Header.js';
-import Container from '../Container/Container.js';
+import Display from '../Display/Display.js';
 import { Route } from 'react-router-dom';
 import fetchData from '../../apiCalls.js';
 
@@ -36,7 +36,7 @@ export default class App extends Component {
         <Route
           path="/"
           render={() => (
-            <Container
+            <Display
               updateSearch={this.updateSearch}
               search={this.state.search}
               movies={this.state.movies}
@@ -48,7 +48,7 @@ export default class App extends Component {
         <Route
           path="/:title/:id"
           render={({ match }) => (
-            <Container
+            <Display
               currentMovie={match.params.id}
             />
           )}
