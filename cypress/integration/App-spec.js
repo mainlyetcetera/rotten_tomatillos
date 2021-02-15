@@ -350,13 +350,14 @@ describe.only('the search bar', () => {
 
     cy
       .visit('localhost:3000')
-
-    cy
-      .get('input')
   });
 
   it('should have placeholder text', () => { 
+    cy
+      .get('input')
 
+    cy
+      .should('have.attr', 'placeholder', 'Search by Title')
   });
 
   it('should find all movies with inclusive titles', () => { 
