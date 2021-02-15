@@ -29,11 +29,17 @@ const Container = props => {
         <MovieLoader key={1}/>,
         <MovieLoader key={2}/>,
         <MovieLoader key={4}/>]
+
+    const movieRender = movieComponents.length ? movieComponents :
+      <h2>There are no movies matching this search.</h2>
+
+    const itemsToRender = props.movies.length ? movieRender : loadingComponents;
+
     return (
       <main>
         <SearchBar updateSearch={props.updateSearch}/>
         <section className='movie-grid'>
-          {props.movies.length ? movieComponents : loadingComponents}
+          {itemsToRender}
         </section>
       </main>
     )
