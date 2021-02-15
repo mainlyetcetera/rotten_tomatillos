@@ -13,7 +13,7 @@ const Container = props => {
 
   if (!props.currentMovie) {
     const moviesToDisplay = props.search ?
-      props.movies.filter(movie => movie.title.includes(props.search))
+      props.movies.filter(movie => movie.title.toLowerCase().includes(props.search.toLowerCase()))
       : props.movies
 
     const movieComponents = moviesToDisplay.map((movie, index) => (
