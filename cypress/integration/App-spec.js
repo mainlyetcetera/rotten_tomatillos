@@ -360,7 +360,27 @@ describe.only('the search bar', () => {
       .should('have.attr', 'placeholder', 'Search by Title')
   });
 
-  it('should find all movies with inclusive titles', () => { 
+  it('should find all movies whose titles includes given input', () => { 
+    cy
+      .get('input')
+      .type('m')
+
+    cy
+      .get('section')
+      .children()
+      .should('have.length', 2)
+
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .contains('Money Plane')
+
+    cy
+      .get('section')
+      .children('article:nth-child(2)')
+      .find('h2')
+      .contains('Mulan')
   });
 
   it('should be able to find just one movie', () => { 
