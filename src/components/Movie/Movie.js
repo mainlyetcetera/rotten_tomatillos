@@ -13,7 +13,7 @@ const Movie = ({ poster_path, title, average_rating, id }) => {
         <img
           src={`${poster_path}`}
           className="movie-poster"
-          alt={`The poster for ${title}`}
+          alt={`${title}`}
         ></img>
         <h2 className="movie-title">{title}</h2>
       </Link>
