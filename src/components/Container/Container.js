@@ -31,8 +31,7 @@ const Container = props => {
         <MovieLoader key={2}/>,
         <MovieLoader key={4}/>]
 
-    const movieRender = movieComponents.length ? movieComponents :
-      <NoResults />
+    const movieRender = movieComponents.length ? movieComponents : <NoResults />;
 
     const itemsToRender = props.movies.length ? movieRender : loadingComponents;
 
