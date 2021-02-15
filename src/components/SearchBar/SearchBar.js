@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchBar.css'
 
 class SearchBar extends Component {
   constructor() {
@@ -6,7 +7,9 @@ class SearchBar extends Component {
   }
 
   render() {
-    return <input className="search-bar"></input>
+    return <input
+      className="search-bar"
+      placeholder="Search by Title"></input>
   }
 }
 
