@@ -9,8 +9,15 @@ export default class App extends Component {
     super()
     this.state = {
       movies: [],
-      error: false
+      error: false,
+      search: ''
     }
+  }
+
+  updateSearch = (searchTerm) => {
+    this.setState({
+      search: searchTerm
+    })
   }
 
   componentDidMount = () => {
@@ -30,6 +37,8 @@ export default class App extends Component {
           path="/"
           render={() => (
             <Container
+              updateSearch={this.updateSearch}
+              search={this.state.search}
               movies={this.state.movies}
               error={this.state.error}
             />
