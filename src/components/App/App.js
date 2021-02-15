@@ -14,7 +14,7 @@ export default class App extends Component {
     }
   }
 
-  updateSearch = (searchTerm) => {
+  updateSearch = searchTerm => {
     this.setState({
       search: searchTerm
     })
