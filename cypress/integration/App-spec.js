@@ -336,3 +336,37 @@ describe('whether data is missing or not', () => {
       .contains('Runtime: ')
   });
 });
+
+describe('the search bar', () => {
+  it('should exist', () => {
+    cy
+      .fixture('../fixtures/allMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          statusCode: 200, 
+          body: data
+        })
+      })
+
+    cy
+      .visit('localhost:3000')
+  });
+
+  it('should have placeholder text', () => { 
+  });
+
+  it('should find all movies with inclusive titles', () => { 
+  });
+
+  it('should be able to find just one movie', () => { 
+  });
+
+  it('should be able to find just one movie', () => { 
+  });
+
+  it('should render no-movies-found if no matches', () => { 
+  });
+
+  it('should not render search bar on individual movie view', () => { 
+  });
+});
