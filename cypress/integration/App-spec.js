@@ -337,8 +337,17 @@ describe('whether data is missing or not', () => {
   });
 });
 
-describe.only('the search bar', () => {
+describe('the search bar', () => {
   beforeEach(() => {
+    cy
+      .fixture('../fixtures/indivMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+          statusCode: 200, 
+          body: data.indivMovie[0]
+        })
+      })
+
     cy
       .fixture('../fixtures/allMovies.json')
       .then(data => {
@@ -427,6 +436,19 @@ describe.only('the search bar', () => {
   });
 
   it('should not render search bar on individual movie view', () => { 
-    // this will need an intercept for an individual view and a click to get there
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .click()
+
+    cy
+      .get('div section')
+      .find('h2')
+      .contains('Money Plane')
+
+    cy
+      .get('input')
+      .should('not.exist')
   });
 });
