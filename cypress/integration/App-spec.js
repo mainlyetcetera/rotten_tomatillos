@@ -416,6 +416,14 @@ describe.only('the search bar', () => {
   });
 
   it('should render no-movies-found if no matches', () => { 
+    cy
+      .get('input')
+      .type('aslkdjflaksdjflkasjdlkfj')
+
+    cy
+      .get('section')
+      .find('h2')
+      .contains('There are no movies matching this search')
   });
 
   it('should not render search bar on individual movie view', () => { 
