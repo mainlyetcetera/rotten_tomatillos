@@ -3,6 +3,8 @@ import Movie from '../Movie/Movie.js';
 import Details from '../Details/Details.js'
 import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js';
 import MovieLoader from '../MovieLoader/MovieLoader.js'
+import SearchBar from '../SearchBar/SearchBar.js';
+import NoResults from '../NoResults/NoResults.js'
 import './Container.css';
 
 const Container = props => {
@@ -11,7 +13,11 @@ const Container = props => {
   }
 
   if (!props.currentMovie) {
-    const movieComponents = props.movies.map((movie, index) => (
+    const moviesToDisplay = props.search ?
+      props.movies.filter(movie => movie.title.toLowerCase().includes(props.search.toLowerCase()))
+      : props.movies
+
+    const movieComponents = moviesToDisplay.map((movie, index) => (
       <Movie
         key={index}
         id={movie.id}
@@ -24,10 +30,16 @@ const Container = props => {
         <MovieLoader key={1}/>,
         <MovieLoader key={2}/>,
         <MovieLoader key={4}/>]
+
+    const movieRender = movieComponents.length ? movieComponents : <NoResults />;
+
+    const itemsToRender = props.movies.length ? movieRender : loadingComponents;
+
     return (
       <main>
+        <SearchBar updateSearch={props.updateSearch}/>
         <section className='movie-grid'>
-          {props.movies.length ? movieComponents : loadingComponents}
+          {itemsToRender}
         </section>
       </main>
     )
