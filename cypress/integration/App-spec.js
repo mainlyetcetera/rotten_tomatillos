@@ -248,3 +248,25 @@ describe('going straight to a single-movie view', () => {
       .should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg')
   });
 });
+
+describe.only('whether data is missing or not', () => {
+  it('stuff', () => {
+    cy
+      .fixture('../fixtures/allMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          statusCode: 200, 
+          body: data
+        })
+      })
+
+    cy
+      .visit('localhost:3000')
+  });
+
+  it('should know if data is there', () => {
+  });
+
+  it('should know if data is not there', () => {
+  });
+});
