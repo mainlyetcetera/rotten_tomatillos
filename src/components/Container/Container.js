@@ -3,6 +3,7 @@ import Movie from '../Movie/Movie.js';
 import Details from '../Details/Details.js'
 import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js';
 import MovieLoader from '../MovieLoader/MovieLoader.js'
+import SearchBar from '../SearchBar/SearchBar.js';
 import './Container.css';
 
 const Container = props => {
@@ -26,6 +27,7 @@ const Container = props => {
         <MovieLoader key={4}/>]
     return (
       <main>
+        <SearchBar />
         <section className='movie-grid'>
           {props.movies.length ? movieComponents : loadingComponents}
         </section>
