@@ -4,6 +4,7 @@ import Details from '../Details/Details.js'
 import { ErrorMsg } from '../ErrorMsg/ErrorMsg.js';
 import MovieLoader from '../MovieLoader/MovieLoader.js'
 import SearchBar from '../SearchBar/SearchBar.js';
+import NoResults from '../NoResults/NoResults.js'
 import './Container.css';
 
 const Container = props => {
@@ -31,7 +32,7 @@ const Container = props => {
         <MovieLoader key={4}/>]
 
     const movieRender = movieComponents.length ? movieComponents :
-      <h2>There are no movies matching this search.</h2>
+      <NoResults />
 
     const itemsToRender = props.movies.length ? movieRender : loadingComponents;
 
