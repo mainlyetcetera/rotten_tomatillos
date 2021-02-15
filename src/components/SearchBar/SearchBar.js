@@ -4,12 +4,23 @@ import './SearchBar.css'
 class SearchBar extends Component {
   constructor() {
     super()
+    this.state = {
+      searchTerm: ''
+    }
+  }
+
+  handleChange = event => {
+    this.setState({
+      searchTerm: event.target.value
+    })
   }
 
   render() {
     return <input
       className="search-bar"
-      placeholder="Search by Title"></input>
+      placeholder="Search by Title"
+      value={this.state.searchTerm}
+      onChange={event => this.handleChange(event)}></input>
   }
 }
 
