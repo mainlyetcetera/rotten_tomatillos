@@ -401,6 +401,18 @@ describe.only('the search bar', () => {
   });
 
   it('should not render a movie that should not be found in the search', () => {
+    cy
+      .get('input')
+      .type('mu')
+
+    cy
+      .get('section')
+      .children()
+      .should('have.length', 1)
+
+    cy
+      .get('body')
+      .should('not.contain', 'Rogue')
   });
 
   it('should render no-movies-found if no matches', () => { 
