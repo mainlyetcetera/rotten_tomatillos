@@ -384,6 +384,20 @@ describe.only('the search bar', () => {
   });
 
   it('should be able to find just one movie', () => { 
+    cy
+      .get('input')
+      .type('mu')
+
+    cy
+      .get('section')
+      .children()
+      .should('have.length', 1)
+
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .contains('Mulan')
   });
 
   it('should not render a movie that should not be found in the search', () => {
