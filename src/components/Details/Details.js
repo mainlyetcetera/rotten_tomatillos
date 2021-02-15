@@ -26,16 +26,15 @@ class Details extends Component {
   }
 
   render = () => (
-    this.state.error ? (
-      <div className='error-box'>
-        <ErrorMsg />
-        <Link className="back-button" to='/' >Back to Movies</Link>
-      </div>
-    ) : this.state.movie ? (
-      <DetailsModal movie={this.state.movie}/>
-    ) : (
-      <DetailsLoader />
-    )
+    this.state.error ? 
+      (
+        <div className='error-box'>
+          <ErrorMsg />
+          <Link className="back-button" to='/' >Back to Movies</Link>
+        </div>
+      ) 
+      : this.state.movie ? <DetailsModal movie={this.state.movie}/>
+      : <DetailsLoader />
   )
 }
 
