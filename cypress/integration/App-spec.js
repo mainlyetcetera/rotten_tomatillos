@@ -336,3 +336,119 @@ describe('whether data is missing or not', () => {
       .contains('Runtime: ')
   });
 });
+
+describe('the search bar', () => {
+  beforeEach(() => {
+    cy
+      .fixture('../fixtures/indivMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+          statusCode: 200, 
+          body: data.indivMovie[0]
+        })
+      })
+
+    cy
+      .fixture('../fixtures/allMovies.json')
+      .then(data => {
+        cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          statusCode: 200, 
+          body: data
+        })
+      })
+
+    cy
+      .visit('localhost:3000')
+  });
+
+  it('should have placeholder text', () => { 
+    cy
+      .get('input')
+
+    cy
+      .should('have.attr', 'placeholder', 'Search by Title')
+  });
+
+  it('should find all movies whose titles includes given input', () => { 
+    cy
+      .get('input')
+      .type('m')
+
+    cy
+      .get('section')
+      .children()
+      .should('have.length', 2)
+
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .contains('Money Plane')
+
+    cy
+      .get('section')
+      .children('article:nth-child(2)')
+      .find('h2')
+      .contains('Mulan')
+  });
+
+  it('should be able to find just one movie', () => { 
+    cy
+      .get('input')
+      .type('mu')
+
+    cy
+      .get('section')
+      .children()
+      .should('have.length', 1)
+
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .contains('Mulan')
+  });
+
+  it('should not render a movie that should not be found in the search', () => {
+    cy
+      .get('input')
+      .type('mu')
+
+    cy
+      .get('section')
+      .children()
+      .should('have.length', 1)
+
+    cy
+      .get('body')
+      .should('not.contain', 'Rogue')
+  });
+
+  it('should render no-movies-found if no matches', () => { 
+    cy
+      .get('input')
+      .type('aslkdjflaksdjflkasjdlkfj')
+
+    cy
+      .get('section')
+      .find('h2')
+      .contains('There are no movies matching this search')
+  });
+
+  it('should not render search bar on individual movie view', () => { 
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .click()
+
+    cy
+      .get('div section')
+      .find('h2')
+      .contains('Money Plane')
+
+    cy
+      .get('input')
+      .should('not.exist')
+  });
+});
