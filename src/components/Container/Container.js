@@ -27,7 +27,7 @@ const Container = props => {
         <MovieLoader key={4}/>]
     return (
       <main>
-        <SearchBar />
+        <SearchBar updateSearch={props.onKeyUp}/>
         <section className='movie-grid'>
           {props.movies.length ? movieComponents : loadingComponents}
         </section>
