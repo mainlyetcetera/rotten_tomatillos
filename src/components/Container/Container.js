@@ -12,7 +12,11 @@ const Container = props => {
   }
 
   if (!props.currentMovie) {
-    const movieComponents = props.movies.map((movie, index) => (
+    const moviesToDisplay = props.search ?
+      props.movies.filter(movie => movie.title.includes(props.search))
+      : props.movies
+
+    const movieComponents = moviesToDisplay.map((movie, index) => (
       <Movie
         key={index}
         id={movie.id}
