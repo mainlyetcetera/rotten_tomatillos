@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
-import './DetailsLoader.css'
+import './DetailsLoader.css';
 
 const DetailsLoader = () => (
   <div className="details-wrapper">
