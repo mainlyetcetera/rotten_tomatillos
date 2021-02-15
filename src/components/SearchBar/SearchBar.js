@@ -12,6 +12,8 @@ class SearchBar extends Component {
   handleChange = event => {
     this.setState({
       searchTerm: event.target.value
+    }, () => {
+      this.props.updateSearch(this.state.searchTerm)
     })
   }
 
@@ -22,6 +24,7 @@ class SearchBar extends Component {
       value={this.state.searchTerm}
       onChange={event => this.handleChange(event)}></input>
   }
+
 }
 
 export default SearchBar
