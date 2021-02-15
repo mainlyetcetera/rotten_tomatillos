@@ -337,8 +337,8 @@ describe('whether data is missing or not', () => {
   });
 });
 
-describe('the search bar', () => {
-  it('should exist', () => {
+describe.only('the search bar', () => {
+  beforeEach(() => {
     cy
       .fixture('../fixtures/allMovies.json')
       .then(data => {
@@ -350,9 +350,13 @@ describe('the search bar', () => {
 
     cy
       .visit('localhost:3000')
+
+    cy
+      .get('input')
   });
 
   it('should have placeholder text', () => { 
+
   });
 
   it('should find all movies with inclusive titles', () => { 
