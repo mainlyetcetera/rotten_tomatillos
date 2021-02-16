@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Rotten Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![mainflow](https://user-images.githubusercontent.com/69563078/108132868-d52bd600-7070-11eb-83f3-b469f870d30f.gif)
 
-## Available Scripts
+The details of the requirements for this project are outlined in [this project spec](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html).
 
-In the project directory, you can run:
+The live site can be found [here](http://mainlyetcetera.github.io/rotten_tomatillos).
 
-### `npm start`
+The data for the project came from [here](https://rancid-tomatillos.herokuapp.com/api/v2/movies)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+This is the partner project for Mod 3 at the Turing School of Software and Design. The goal of this application was to develop an understanding of React by building a simple movie display site using principles of development we've been studying for the last 12 weeks but incorporating an entirely new tool set. 
 
-### `npm test`
+The user flow is simple. Upon visiting the site a user is shown all of the movies that exist in the data. A user can click on the poster or title and be taken to another view that shows the details of that movie and return to the main display. Additionally, a user can use the search bar at the top to filter movies by title.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+While the desplay isn't complex, the real growth happened in learning the underylying technologies. The project was built with create react app and incorporates React Router, React Content Loader, and a complete end to end testing suite using Cypress.
 
-### `npm run build`
+## Learning Goals
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Utilize Create React App to build the project entirely in React
+* Deepen our understanding of React lifecycle methods
+* Incorporate async JavaScript by using the API 
+* Incorporate React Router to determine page views and update URL accordingly
+* End to end testing with Cypress
+* Project professionalism with user stories and user flows
+* Responsive, accessible, intuitive design
+* Error handling for failed fetch requests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Using the site.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The user is greeted with all our movies.
 
-### `npm run eject`
+<img width="500" alt="Main screen" src="https://user-images.githubusercontent.com/69563078/108131913-436f9900-706f-11eb-9f6c-50caa894e3ca.png">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Typing in the search bar filters the movies rendered.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img width="500" alt="With search text" src="https://user-images.githubusercontent.com/69563078/108131909-42d70280-706f-11eb-8f9c-36452da44836.png">
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The individual details for a movie.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img width="500" alt="A movie's details" src="https://user-images.githubusercontent.com/69563078/108131896-3e124e80-706f-11eb-942c-f1f1b4a3f259.png">
 
-## Learn More
+## Wins 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A lot of new technologies were learned during this project. This was our first time using React to build out a project for Turing. The entire process, from building, to testing, to refactoring went smoothly. We were tremendously detailed in our use of GitHub issues to track changes along the way and incorporated a new process of writing issues as user stories. We also used a new library, React Content Loader, to handle the loading screens during pending fetch requests. We were able to add additional functionality of filtering movies by title in the main display. The biggest win here is walking away with a lot of comfort and clarity surrounding React, lifecycle methods, React Router, and Cypress. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Future Iterations
 
-### Code Splitting
+One thing we didn't have to to tackle was displaying a separate error page for a 404 error. If a user navigates to a movie url that doesn't exist they are met with a permanent loading screen.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## References
 
-### Analyzing the Bundle Size
+This project was built with Create React App, React Content Loader, and React Router.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+End to end testing was accomplished with Cypress.
 
-### Making a Progressive Web App
+## Authors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+[Eric Campbell](https://github.com/mainlyetcetera)
 
-### Advanced Configuration
+[Chris Spohn](https://github.com/CJSpohn)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
