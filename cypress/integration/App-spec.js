@@ -4,7 +4,7 @@ describe('the main user flow', () => {
       .fixture('../fixtures/allMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data
         })
       })
@@ -47,7 +47,7 @@ describe('the main user flow', () => {
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data.indivMovie[0]
         })
       })
@@ -63,7 +63,7 @@ describe('the main user flow', () => {
       .find('h2')
       .contains('Money Plane')
   });
-  
+
   it('should be able to return to main view from the link', () => {
     cy
       .get('div section a')
@@ -80,7 +80,7 @@ describe('the main user flow', () => {
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data.indivMovie[1]
         })
       })
@@ -97,7 +97,7 @@ describe('the main user flow', () => {
   });
 });
 
-describe('the error on the main view', () => { 
+describe('the error on the main view', () => {
   it('should navigate to a bad api', () => {
     cy
       .fixture('../fixtures/allMovies.json')
@@ -130,7 +130,7 @@ describe('the error on the individual view', () => {
       .fixture('../fixtures/allMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data
         })
       })
@@ -202,13 +202,13 @@ describe('the error on the individual view', () => {
   });
 });
 
-describe('going straight to a single-movie view', () => { 
+describe('going straight to a single-movie view', () => {
   it('should be able to navigate straight to a single-movie', () => {
     cy
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data.indivMovie[1]
         })
       })
@@ -217,7 +217,7 @@ describe('going straight to a single-movie view', () => {
       .fixture('../fixtures/allMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data
         })
       })
@@ -255,7 +255,7 @@ describe('whether data is missing or not', () => {
       .fixture('../fixtures/allMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data
         })
       })
@@ -269,7 +269,7 @@ describe('whether data is missing or not', () => {
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data.indivMovie[1]
         })
       })
@@ -298,7 +298,7 @@ describe('whether data is missing or not', () => {
 
     cy
       .get('div a')
-      .click() 
+      .click()
   });
 
   it('should know if data is not there', () => {
@@ -306,7 +306,7 @@ describe('whether data is missing or not', () => {
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data.indivMovie[0]
         })
       })
@@ -343,16 +343,25 @@ describe('the search bar', () => {
       .fixture('../fixtures/indivMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data.indivMovie[0]
         })
       })
+
+      cy
+        .fixture('../fixtures/indivMovies.json')
+        .then(data => {
+          cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+            statusCode: 200,
+            body: data.indivMovie[1]
+          })
+        })
 
     cy
       .fixture('../fixtures/allMovies.json')
       .then(data => {
         cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-          statusCode: 200, 
+          statusCode: 200,
           body: data
         })
       })
@@ -361,7 +370,7 @@ describe('the search bar', () => {
       .visit('localhost:3000')
   });
 
-  it('should have placeholder text', () => { 
+  it('should have placeholder text', () => {
     cy
       .get('input')
 
@@ -369,7 +378,7 @@ describe('the search bar', () => {
       .should('have.attr', 'placeholder', 'Search by Title')
   });
 
-  it('should find all movies whose titles includes given input', () => { 
+  it('should find all movies whose titles includes given input', () => {
     cy
       .get('input')
       .type('m')
@@ -392,7 +401,7 @@ describe('the search bar', () => {
       .contains('Mulan')
   });
 
-  it('should be able to find just one movie', () => { 
+  it('should be able to find just one movie', () => {
     cy
       .get('input')
       .type('mu')
@@ -424,7 +433,7 @@ describe('the search bar', () => {
       .should('not.contain', 'Rogue')
   });
 
-  it('should render no-movies-found if no matches', () => { 
+  it('should render no-movies-found if no matches', () => {
     cy
       .get('input')
       .type('aslkdjflaksdjflkasjdlkfj')
@@ -435,7 +444,7 @@ describe('the search bar', () => {
       .contains('There are no movies matching this search')
   });
 
-  it('should not render search bar on individual movie view', () => { 
+  it('should not render search bar on individual movie view', () => {
     cy
       .get('section')
       .children('article:first')
@@ -451,4 +460,25 @@ describe('the search bar', () => {
       .get('input')
       .should('not.exist')
   });
+
+  it('should retain the search input after returing from details', () => {
+    cy
+      .get('input')
+      .type('mu')
+
+    cy
+      .get('section')
+      .children('article:first')
+      .find('h2')
+      .click()
+
+    cy
+      .get('div a')
+      .click()
+
+    cy
+      .get('input')
+      .should('have.value', 'mu')
+  })
+
 });

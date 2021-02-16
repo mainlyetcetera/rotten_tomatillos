@@ -37,7 +37,7 @@ const Display = props => {
 
     return (
       <main>
-        <SearchBar updateSearch={props.updateSearch}/>
+        <SearchBar search={props.search} updateSearch={props.updateSearch}/>
         <section className='movie-grid'>
           {itemsToRender}
         </section>
