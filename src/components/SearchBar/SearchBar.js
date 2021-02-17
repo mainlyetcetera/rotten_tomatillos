@@ -19,6 +19,7 @@ class SearchBar extends Component {
 
   render() {
     return <input
+      aria-label="Search bar to filter movies"
       className="search-bar"
       placeholder="Search by Title"
       value={this.state.searchTerm}
